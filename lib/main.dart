@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gluon_test/feature/presentation/bloc/converter_bloc/converter_bloc.dart';
 import 'package:gluon_test/feature/presentation/pages/converter_page.dart';
 
 void main() {
@@ -25,7 +27,10 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const ConverterPage(),
+      home: BlocProvider<ConverterBloc>(
+        create: (context) => ConverterBloc(),
+        child: const ConverterPage(),
+      ),
     );
   }
 }
